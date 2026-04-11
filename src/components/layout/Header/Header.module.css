@@ -1,0 +1,174 @@
+.header {
+  width: 100%;
+  margin: 0 auto;
+  background: #f5f5f5;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px 10px;
+}
+
+.logoGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.logoBox {
+  width: 64px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d7edf8;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f1f1f;
+}
+
+.profileCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #d7d7d7;
+  border-radius: 999px;
+  padding: 8px 12px 8px 16px;
+}
+
+.profileText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+.profileName {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1f1f1f;
+}
+
+.profileId {
+  font-size: 11px;
+  color: #8a8a8a;
+}
+
+.profileIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e8e8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.bottomRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 32px 16px;
+  border-top: 1px solid #d9d9d9;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.navLink {
+  font-size: 16px;
+  color: #1f1f1f;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #4d9fd1;
+}
+
+.navLinkActive {
+  color: #4d9fd1;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.iconLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #5f5f5f;
+  text-decoration: none;
+  font-size: 22px;
+  min-width: 24px;
+}
+
+.phoneLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1f1f1f;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.phoneIcon {
+  font-size: 20px;
+}
+
+@media (max-width: 900px) {
+  .topRow,
+  .bottomRow {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .topRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .profileCard {
+    align-self: flex-end;
+  }
+
+  .nav {
+    gap: 18px;
+  }
+
+  .navLink {
+    font-size: 14px;
+  }
+
+  .phoneLink {
+    font-size: 15px;
+  }
+}
