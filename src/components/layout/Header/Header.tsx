@@ -3,11 +3,12 @@ import type { HeaderProps } from "./header.types";
 import ProfileCard from "./ProfileCard";
 import HeaderNav from "./HeaderNav";
 import HeaderActions from "./HeaderActions";
+import { mockHeaderUser } from "./header.mock"
 
 export default function Header({
-  userName = "Gigi Nikoleishvili",
-  userId = "487594563",
-  phone = "+995 591 99 32 10",
+  userName = mockHeaderUser.userName,
+  userId = mockHeaderUser.userId,
+  phone = mockHeaderUser.phone,
 }: HeaderProps) {
   return (
     <header className={styles.header}>
