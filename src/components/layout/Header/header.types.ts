@@ -21,5 +21,5 @@ export type NavItem = {
 export type SocialLink = {
   label: string;
   href: string;
-  content: string;
+  icon: string;
 };

@@ -1,3 +1,9 @@
+import HeroSection from "./sections/hero/HeroSection";
+
 export default function HomePage() {
-  return <div>Home page To Be Added</div>;
+  return (
+    <>
+      <HeroSection />
+    </>
+  );
 }

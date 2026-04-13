@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
 import type { HeaderActionsProps } from "./header.types";
 import { socialLinks } from "./header.config";
+import phoneIcon from "../../../assets/icons/call.svg";
 
 export default function HeaderActions({ phone }: HeaderActionsProps) {
   const normalizedPhone = phone.replace(/\s+/g, "");
@@ -16,12 +17,12 @@ export default function HeaderActions({ phone }: HeaderActionsProps) {
           target="_blank"
           rel="noreferrer"
         >
-          <span>{link.content}</span>
+          <img src={link.icon} alt={link.label} className={styles.socialIcon} />
         </a>
       ))}
 
       <a href={`tel:${normalizedPhone}`} className={styles.phoneLink}>
-        <span className={styles.phoneIcon}>📞</span>
+        <img src={phoneIcon} alt="Phone" className={styles.phoneIcon} />
         <span>{phone}</span>
       </a>
     </div>
