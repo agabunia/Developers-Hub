@@ -1,6 +1,7 @@
 import "./ProjectsShowcase.css";
+import { featuredProjects, type ProjectCard as FeaturedProject } from "./projectsShowcase.mock";
 
-type ProjectCard = {
+type NewestProject = {
   id: number;
   imageText: string;
   title: string;
@@ -8,45 +9,17 @@ type ProjectCard = {
   location: string;
 };
 
-const featuredProjects: ProjectCard[] = [
-  {
-    id: 1,
-    imageText: "Dummy image text",
-    title: "Dummy title",
-    meta: "Dummy text",
-    location: "Dummy location",
-  },
-  {
-    id: 2,
-    imageText: "Dummy image text",
-    title: "Dummy title",
-    meta: "Dummy text",
-    location: "Dummy location",
-  },
-  {
-    id: 3,
-    imageText: "Dummy image text",
-    title: "Dummy title",
-    meta: "Dummy text",
-    location: "Dummy location",
-  },
-  {
-    id: 4,
-    imageText: "Dummy image text",
-    title: "Dummy title",
-    meta: "Dummy text",
-    location: "Dummy location",
-  },
-  {
-    id: 5,
-    imageText: "Dummy image text",
-    title: "Dummy title",
-    meta: "Dummy text",
-    location: "Dummy location",
-  },
-];
+const projectImages = import.meta.glob("../../../../assets/home/project_images/*", {
+  eager: true,
+  import: "default",
+  query: "?url",
+}) as Record<string, string>;
 
-const newestProjects: ProjectCard[] = [
+function getProjectImageUrl(imageLocation: string) {
+  return projectImages[`../../../../assets/home/project_images/${imageLocation}`];
+}
+
+const newestProjects: NewestProject[] = [
   {
     id: 1,
     imageText: "Dummy image text",
@@ -123,15 +96,25 @@ function LocationIcon() {
   );
 }
 
-function FeaturedProjectCard({ project }: { project: ProjectCard }) {
+function FeaturedProjectCard({ project }: { project: FeaturedProject }) {
+  const imageUrl = getProjectImageUrl(project.image_location);
+
   return (
     <article className="projects-showcase_featured-card">
       <div className="projects-showcase_featured-media">
-        <span>{project.imageText}</span>
+        {imageUrl ? (
+          <img
+            src={imageUrl}
+            alt={project.title}
+            className="projects-showcase_featured-image"
+            loading="lazy"
+          />
+        ) : (
+          <span>{project.title}</span>
+        )}
       </div>
       <div className="projects-showcase_featured-body">
         <h3>{project.title}</h3>
-        <p>{project.meta}</p>
       </div>
       <div className="projects-showcase_card-footer">
         <LocationIcon />
@@ -141,7 +124,7 @@ function FeaturedProjectCard({ project }: { project: ProjectCard }) {
   );
 }
 
-function NewProjectCard({ project }: { project: ProjectCard }) {
+function NewProjectCard({ project }: { project: NewestProject }) {
   return (
     <article className="projects-showcase_new-card" aria-label={project.title}>
       <span>{project.imageText}</span>
