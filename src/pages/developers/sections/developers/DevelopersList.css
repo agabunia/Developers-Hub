@@ -24,6 +24,7 @@
   width: min(100%, 104px);
   aspect-ratio: 1;
   overflow: hidden;
+  border: 1px solid #000000;
   border-radius: 50%;
   background: #ffffff;
 }
