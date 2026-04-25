@@ -256,9 +256,13 @@
   gap: 12px;
 }
 
+.projects-showcase_title-group h2 {
+  font-size: 45px;
+}
+
 .projects-showcase_heading-icon {
-  width: 22px;
-  height: 22px;
+  width: 42px;
+  height: 42px;
   fill: none;
   stroke: #39b7c8;
   stroke-linejoin: round;
