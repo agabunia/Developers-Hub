@@ -43,32 +43,5 @@
 }
 
 .hero-section_search {
-  display: flex;
-  align-items: center;
-  gap: 14px;
   width: min(92%, 560px);
-  padding: 18px 24px;
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
-}
-
-.hero-section_search-icon {
-  flex-shrink: 0;
-  font-size: 20px;
-  line-height: 1;
-}
-
-.hero-section_search-input {
-  width: 100%;
-  border: none;
-  outline: none;
-  background: transparent;
-  font: inherit;
-  font-size: 16px;
-  color: #3a3a3a;
-}
-
-.hero-section_search-input::placeholder {
-  color: #8f8f8f;
 }

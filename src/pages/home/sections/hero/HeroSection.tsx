@@ -1,5 +1,6 @@
 import heroBanner from "../../../../assets/home/ezo-banner.png";
 import heroLogo from "../../../../assets/home/ezo-logo.jpg";
+import SearchBar from "../../../../components/ui/search-bar";
 import "./HeroSection.css";
 
 export default function HeroSection() {
@@ -22,17 +23,11 @@ export default function HeroSection() {
           />
         </div>
 
-        <div className="hero-section_search">
-          <span className="hero-section_search-icon" aria-hidden="true">
-            🔍
-          </span>
-
-          <input
-            type="text"
-            placeholder="Find your article"
-            className="hero-section_search-input"
-          />
-        </div>
+        <SearchBar
+          className="hero-section_search"
+          placeholder="Find your article"
+          aria-label="Find your article"
+        />
       </div>
     </section>
   );
