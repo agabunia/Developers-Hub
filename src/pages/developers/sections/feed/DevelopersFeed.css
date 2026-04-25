@@ -8,39 +8,6 @@
 .developers-feed_search {
   justify-self: center;
   width: min(92%, 560px);
-  box-sizing: border-box;
-  min-height: 36px;
-  padding: 0 14px 0 8px;
-  gap: 10px;
-  border: 1px solid #d8d8d8;
-  border-radius: 10px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
-}
-
-.developers-feed_search .search-bar__icon {
-  width: 31px;
-  height: 31px;
-  flex-basis: 31px;
-  background: #e8f8fc;
-}
-
-.developers-feed_search .search-bar__icon::before {
-  top: 8px;
-  left: 8px;
-  width: 10px;
-  height: 10px;
-  border-color: #5b6d73;
-}
-
-.developers-feed_search .search-bar__icon::after {
-  right: 8px;
-  bottom: 9px;
-  width: 8px;
-  background: #5b6d73;
-}
-
-.developers-feed_search .search-bar__input {
-  font-size: 13px;
 }
 
 .developers-feed_carousel {

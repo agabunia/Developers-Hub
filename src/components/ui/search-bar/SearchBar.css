@@ -2,7 +2,9 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 18px 24px;
+  min-height: clamp(50px, 5vw, 60px);
+  padding: clamp(9px, 1vw, 12px) clamp(18px, 2vw, 24px);
+  box-sizing: border-box;
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
@@ -10,9 +12,9 @@
 
 .search-bar__icon {
   position: relative;
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
+  flex: 0 0 clamp(32px, 3vw, 36px);
+  width: clamp(32px, 3vw, 36px);
+  height: clamp(32px, 3vw, 36px);
   background-color: #e6f9ff;
   border-radius: 50%;
 }
@@ -48,7 +50,7 @@
   outline: none;
   background: transparent;
   font: inherit;
-  font-size: 16px;
+  font-size: clamp(14px, 1.3vw, 16px);
   color: #3a3a3a;
 }
 
