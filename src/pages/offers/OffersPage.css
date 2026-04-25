@@ -6,11 +6,12 @@
 }
 
 .offers-page_inner {
-  width: min(100%, 904px);
+  width: 100%;
 }
 
 .offers-page h1 {
-  margin: 0 0 16px;
+  margin: 0 0 22px;
+  padding: 14px 0 10px;
   color: #555555;
   font-size: clamp(25px, 3vw, 34px);
   font-weight: 400;
@@ -148,7 +149,8 @@
   }
 
   .offers-page h1 {
-    margin-bottom: 14px;
+    margin-bottom: 16px;
+    padding: 10px 0 8px;
   }
 
   .offers-card_media {

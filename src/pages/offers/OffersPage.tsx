@@ -57,7 +57,9 @@ export default function OffersPage() {
         <h1 id="offers-page-title">Special offers for you</h1>
 
         <div className="offers-page_list">
-          {featuredOffers.slice(0, 3).map((offer) => (
+          {featuredOffers
+          // .slice(0, 3)
+          .map((offer) => (
             <OfferCard key={offer.id} offer={offer} />
           ))}
         </div>
