@@ -230,12 +230,13 @@
 
 .news-feed_metric {
   gap: 7px;
-  min-width: 28px;
+  min-width: 32px;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   color: #696969;
   font-size: 18px;
   line-height: 1;
+  text-align: center;
 }
 
 .news-feed_metric-bookmark {
