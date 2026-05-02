@@ -7,9 +7,20 @@ const feedImages = import.meta.glob("../../../../assets/developers/developers_fe
   query: "?url",
 }) as Record<string, string>;
 
+// const logoImages = import.meta.glob("../../../../assets/developers/logos/*", {
+//   eager: true,
+//   import: "default",
+//   query: "?url",
+// }) as Record<string, string>;
+
 function getFeedImageUrl(imageLocation: string) {
   return feedImages[`../../../../assets/developers/developers_feed/${imageLocation}`];
 }
+
+// Change this if your logo path/folder is different
+// function getLogoUrl(logoLocation: string) {
+//   return logoImages[`../../../../assets/developers/logos/${logoLocation}`];
+// }
 
 type FeedProps = {
   developerId: number;
@@ -37,34 +48,58 @@ function FeedItem({ item }: { item: FeedItemType }) {
   const imageUrl = item.content_location ? getFeedImageUrl(item.content_location) : null;
 
   return (
-    <div className="feed-item">
+    <article className="feed-item">
+      <div className="feed-item_header">
+        <div className="feed-item_title-block">
+          {item.title_geo && <h3 className="feed-item_title-geo">{item.title_geo}</h3>}
+          {item.title_end && <p className="feed-item_title-end">{item.title_end}</p>}
+        </div>
+
+        <div className="feed-item_brand">
+          <div className="feed-item_brand-text">
+            <span>BLOX</span>
+            <span>ბლოქსი</span>
+          </div>
+
+          <div className="feed-item_logo">
+            <span>◆</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="feed-item_divider" />
+
+      <div className="feed-item_content">
+        {item.description_end && (
+          <p className="feed-item_description">{item.description_end}</p>
+        )}
+
+        {item.description_geo && (
+          <p className="feed-item_description-geo">{item.description_geo}</p>
+        )}
+      </div>
+
       {item.type === "image" && imageUrl && (
         <div className="feed-item_media">
-          <img src={imageUrl} alt={item.title_end} className="feed-item_image" />
+          <img src={imageUrl} alt={item.title_end || item.title_geo || "Feed item"} className="feed-item_image" />
         </div>
       )}
 
       {item.type === "video" && item.video_url && (
-        <div className="feed-item_media">
+        <div className="feed-item_media feed-item_media-video">
           <iframe
             className="feed-item_video"
             src={item.video_url}
-            title={item.title_end}
+            title={item.title_end || item.title_geo || "Feed video"}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
         </div>
       )}
 
-      <div className="feed-item_content">
-        {item.title_end && <h3 className="feed-item_title">{item.title_end}</h3>}
-        {item.title_geo && <p className="feed-item_title-geo">{item.title_geo}</p>}
-
-        {item.description_end && <p className="feed-item_description">{item.description_end}</p>}
-        {item.description_geo && <p className="feed-item_description-geo">{item.description_geo}</p>}
-
-        <span className="feed-item_date">{new Date(item.date).toLocaleDateString()}</span>
-      </div>
-    </div>
+      <span className="feed-item_date">
+        {new Date(item.date).toLocaleDateString()}
+      </span>
+    </article>
   );
 }
