@@ -5,6 +5,7 @@ import "./ProjectDetails.css";
 import { Feed } from "./sections/feed";
 import { About } from "./sections/about";
 import { Projects } from "./sections/projects";
+import { Gallery } from "./sections/gallery";
 
 type TabType = "feed" | "about" | "projects" | "gallery" | "review" | "contact";
 
@@ -141,12 +142,7 @@ export default function ProjectDetailsPage() {
         {activeTab === "feed" && <Feed developerId={developer.id} />}
         {activeTab === "about" && <About developerId={developer.id} />}
         {activeTab === "projects" && <Projects developerId={developer.id} />}
-        {activeTab === "gallery" && (
-          <section className="project-details_section">
-            <h2>Gallery</h2>
-            <p>Coming soon...</p>
-          </section>
-        )}
+        {activeTab === "gallery" && <Gallery developerId={developer.id} />}
         {activeTab === "review" && (
           <section className="project-details_section">
             <h2>Reviews</h2>
