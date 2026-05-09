@@ -7,20 +7,19 @@ const feedImages = import.meta.glob("../../../../assets/developers/developers_fe
   query: "?url",
 }) as Record<string, string>;
 
-// const logoImages = import.meta.glob("../../../../assets/developers/logos/*", {
-//   eager: true,
-//   import: "default",
-//   query: "?url",
-// }) as Record<string, string>;
+const logoImages = import.meta.glob("../../../../assets/developers/developers_logos/*", {
+  eager: true,
+  import: "default",
+  query: "?url",
+}) as Record<string, string>;
 
 function getFeedImageUrl(imageLocation: string) {
   return feedImages[`../../../../assets/developers/developers_feed/${imageLocation}`];
 }
 
-// Change this if your logo path/folder is different
-// function getLogoUrl(logoLocation: string) {
-//   return logoImages[`../../../../assets/developers/logos/${logoLocation}`];
-// }
+function getLogoUrl(logoLocation: string) {
+  return logoImages[`../../../../assets/developers/developers_logos/${logoLocation}`];
+}
 
 type FeedProps = {
   developerId: number;
@@ -46,6 +45,7 @@ export default function Feed({ developerId }: FeedProps) {
 
 function FeedItem({ item }: { item: FeedItemType }) {
   const imageUrl = item.content_location ? getFeedImageUrl(item.content_location) : null;
+  const logoUrl = item.logo_location ? getLogoUrl(item.logo_location) : undefined;
 
   return (
     <article className="feed-item">
@@ -57,12 +57,13 @@ function FeedItem({ item }: { item: FeedItemType }) {
 
         <div className="feed-item_brand">
           <div className="feed-item_brand-text">
-            <span>BLOX</span>
-            <span>ბლოქსი</span>
+            <p className="project-details_title">
+                {item.name_end} | {item.name_geo}
+              </p>
           </div>
 
           <div className="feed-item_logo">
-            <span>◆</span>
+            <img src={logoUrl} alt={item.name_end || item.name_geo || "Developer logo"} className="feed-item_logo"/>
           </div>
         </div>
       </div>
