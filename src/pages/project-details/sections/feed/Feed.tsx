@@ -52,14 +52,13 @@ function FeedItem({ item }: { item: FeedItemType }) {
       <div className="feed-item_header">
         <div className="feed-item_title-block">
           {item.title_geo && <h3 className="feed-item_title-geo">{item.title_geo}</h3>}
-          {item.title_end && <p className="feed-item_title-end">{item.title_end}</p>}
+          {/* {item.title_end && <p className="feed-item_title-end">{item.title_end}</p>} */}
         </div>
 
         <div className="feed-item_brand">
           <div className="feed-item_brand-text">
-            <p className="project-details_title">
-                {item.name_end} | {item.name_geo}
-              </p>
+            <p className="project-details_title">{item.name_end}</p>
+            <p className="project-details_title">{item.name_geo}</p>
           </div>
 
           <div className="feed-item_logo">
