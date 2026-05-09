@@ -1,24 +1,34 @@
 import { feedItems, type FeedItemType } from "./Feed.mock";
 import "./Feed.css";
 
-const feedImages = import.meta.glob("../../../../assets/developers/developers_feed/*", {
-  eager: true,
-  import: "default",
-  query: "?url",
-}) as Record<string, string>;
+const feedImages = import.meta.glob(
+  "../../../../assets/developers/developers_feed/*",
+  {
+    eager: true,
+    import: "default",
+    query: "?url",
+  },
+) as Record<string, string>;
 
-const logoImages = import.meta.glob("../../../../assets/developers/developers_logos/*", {
-  eager: true,
-  import: "default",
-  query: "?url",
-}) as Record<string, string>;
+const logoImages = import.meta.glob(
+  "../../../../assets/developers/developers_logos/*",
+  {
+    eager: true,
+    import: "default",
+    query: "?url",
+  },
+) as Record<string, string>;
 
 function getFeedImageUrl(imageLocation: string) {
-  return feedImages[`../../../../assets/developers/developers_feed/${imageLocation}`];
+  return feedImages[
+    `../../../../assets/developers/developers_feed/${imageLocation}`
+  ];
 }
 
 function getLogoUrl(logoLocation: string) {
-  return logoImages[`../../../../assets/developers/developers_logos/${logoLocation}`];
+  return logoImages[
+    `../../../../assets/developers/developers_logos/${logoLocation}`
+  ];
 }
 
 type FeedProps = {
@@ -26,7 +36,9 @@ type FeedProps = {
 };
 
 export default function Feed({ developerId }: FeedProps) {
-  const developerFeed = feedItems.filter((item) => item.developer_id === developerId);
+  const developerFeed = feedItems.filter(
+    (item) => item.developer_id === developerId,
+  );
 
   return (
     <section className="feed-section">
@@ -44,14 +56,20 @@ export default function Feed({ developerId }: FeedProps) {
 }
 
 function FeedItem({ item }: { item: FeedItemType }) {
-  const imageUrl = item.content_location ? getFeedImageUrl(item.content_location) : null;
-  const logoUrl = item.logo_location ? getLogoUrl(item.logo_location) : undefined;
+  const imageUrl = item.content_location
+    ? getFeedImageUrl(item.content_location)
+    : null;
+  const logoUrl = item.logo_location
+    ? getLogoUrl(item.logo_location)
+    : undefined;
 
   return (
     <article className="feed-item">
       <div className="feed-item_header">
         <div className="feed-item_title-block">
-          {item.title_geo && <h3 className="feed-item_title-geo">{item.title_geo}</h3>}
+          {item.title_geo && (
+            <h3 className="feed-item_title-geo">{item.title_geo}</h3>
+          )}
           {/* {item.title_end && <p className="feed-item_title-end">{item.title_end}</p>} */}
         </div>
 
@@ -62,7 +80,11 @@ function FeedItem({ item }: { item: FeedItemType }) {
           </div>
 
           <div className="feed-item_logo">
-            <img src={logoUrl} alt={item.name_end || item.name_geo || "Developer logo"} className="feed-item_logo"/>
+            <img
+              src={logoUrl}
+              alt={item.name_end || item.name_geo || "Developer logo"}
+              className="feed-item_logo"
+            />
           </div>
         </div>
       </div>
@@ -70,18 +92,19 @@ function FeedItem({ item }: { item: FeedItemType }) {
       <div className="feed-item_divider" />
 
       <div className="feed-item_content">
-        {item.description_end && (
+        {/* {item.description_end && (
           <p className="feed-item_description">{item.description_end}</p>
-        )}
-
-        {item.description_geo && (
-          <p className="feed-item_description-geo">{item.description_geo}</p>
-        )}
+        )} */}
+        {item.description_geo}
       </div>
 
       {item.type === "image" && imageUrl && (
         <div className="feed-item_media">
-          <img src={imageUrl} alt={item.title_end || item.title_geo || "Feed item"} className="feed-item_image" />
+          <img
+            src={imageUrl}
+            alt={item.title_end || item.title_geo || "Feed item"}
+            className="feed-item_image"
+          />
         </div>
       )}
 

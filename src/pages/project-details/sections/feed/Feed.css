@@ -100,14 +100,13 @@
 .feed-item_divider {
   width: 48%;
   height: 1px;
-  background: #cfcfcf;
-  margin: 16px 0 16px;
+  background: #222;
 }
 
 /* Text */
 .feed-item_content {
-  padding: 0;
-  margin-bottom: 14px;
+  padding: 35px 0 30px 0;
+  text-align: left;
 }
 
 .feed-item_description,
@@ -130,10 +129,10 @@
 .feed-item_media {
   position: relative;
   width: 100%;
-  height: 138px;
+  height: 350px;
   overflow: hidden;
   background: #eeeeee;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 
 .feed-item_image {
@@ -145,7 +144,7 @@
 
 /* Optional video style */
 .feed-item_media-video {
-  height: 190px;
+  height: 350px;
 }
 
 .feed-item_video {
