@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { aboutSections, type AboutSectionType } from "./about.mock";
 import "./About.css";
+import FlagIcon from '../../../../assets/icons/Flag.svg';
 
 const logoImages = import.meta.glob("../../../../assets/developers/developers_logos/*", {
   eager: true,
@@ -8,8 +9,18 @@ const logoImages = import.meta.glob("../../../../assets/developers/developers_lo
   query: "?url",
 }) as Record<string, string>;
 
+const socialMediaImages = import.meta.glob("../../../../assets/icons/*", {
+  eager: true,
+  import: "default",
+  query: "?url",
+}) as Record<string, string>;
+
 function getLogoImageUrl(imageLocation: string) {
   return logoImages[`../../../../assets/developers/developers_logos/${imageLocation}`];
+}
+
+function getSocialMediaImageUrl(imageLocation: string) {
+  return socialMediaImages[`../../../../assets/icons/${imageLocation}`];
 }
 
 type AboutProps = {
@@ -44,7 +55,7 @@ function AboutHeader({ about }: { about: AboutSectionType }) {
 
 function AboutDescription({ about }: { about: AboutSectionType }) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const maxLength = 300;
+  const maxLength = 500;
   const text = about.description_end;
   const shouldTruncate = text.length > maxLength;
   const displayText = isExpanded ? text : `${text.substring(0, maxLength)}${shouldTruncate ? "..." : ""}`;
@@ -69,8 +80,9 @@ function SinceSection({ about }: { about: AboutSectionType }) {
         <div className="since-section_year">
           <span className="since-section_year-value">{about.since_year}</span>
           <div className="since-section_bar" />
+          <img src={FlagIcon} alt="flag" className="flag-icon"/>
         </div>
-        <p className="since-section_experience">{about.experience_years} years of experience</p>
+        <p className="since-section_experience">{new Date().getFullYear() - about.since_year} years of experience</p>
       </div>
     </div>
   );
@@ -225,10 +237,16 @@ function SocialMediaCarousel({ about }: { about: AboutSectionType }) {
 }
 
 function SocialMediaCard({ social }: { social: { id: number; name: string; icon_url: string; link: string } }) {
+  const iconUrl = getSocialMediaImageUrl(social.icon_url);
+
   return (
     <a href={social.link} target="_blank" rel="noopener noreferrer" className="social-media-card">
       <div className="social-media-card_icon">
-        <img src={social.icon_url} alt={social.name} loading="lazy" />
+        {iconUrl ? (
+          <img src={iconUrl} alt={social.name} loading="lazy" />
+        ) : (
+          <span className="social-media-card_icon-fallback">{social.name}</span>
+        )}
       </div>
       <p className="social-media-card_name">{social.name}</p>
     </a>

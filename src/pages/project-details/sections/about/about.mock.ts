@@ -30,7 +30,7 @@ export const aboutSections: AboutSectionType[] = [
     name_geo: "ბლოქსი",
     name_eng: "BLOX",
     description_end:
-      "BLOX, has been operating on Real Estate Development Market in Georgia since 2016 and has been creating new comfortable living standards every day. It is our priority to create profitable projects that will stand the test of time. We are dedicated to building quality living spaces built in a green and peaceful areas. With European standards, high quality living spaces built in a green and peaceful areas. With European standards, high quality living spaces built in a green and peaceful areas.",
+      "BLOX, has been operating on Real Estate Development Market in Georgia since 2016 and has been creating new comfortable living standards every day. It is our priority to create profitable projects that will stand the test of time. We are dedicated to building quality living spaces built in a green and peaceful areas. With European standards, high quality living spaces built in a green and peaceful areas. With European standards, high quality living spaces built in a green and peaceful areas. BLOX, has been operating on Real Estate Development Market in Georgia since 2016 and has been creating new comfortable living standards every day. It is our priority to create profitable projects that will stand the test of time. We are dedicated to building quality living spaces built in a green and peaceful areas. With European standards, high quality living spaces built in a green and peaceful areas. With European standards, high quality living spaces built in a green and peaceful areas.",
     description_geo:
       "ბლოქსი, რეალური ქონების განვითარების ბაზარზე საქართველოში 2016 წლიდან ღირებული და თითოეულ დღეს შეუდგენელი კომფორტული ცხოვრების სტანდარტების შექმნა. ჩვენი პრიორიტეტი არის მომგებიანი პროექტების შექმნა.",
     since_year: 2015,
@@ -65,25 +65,25 @@ export const aboutSections: AboutSectionType[] = [
       {
         id: 1,
         name: "Facebook",
-        icon_url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/brands/facebook.svg",
+        icon_url: "fb-img.png",
         link: "https://facebook.com/blox.ge",
       },
       {
         id: 2,
         name: "Instagram",
-        icon_url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/brands/instagram.svg",
+        icon_url: "insta-img.png",
         link: "https://instagram.com/bloxofficial",
       },
       {
         id: 3,
         name: "WhatsApp",
-        icon_url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/brands/whatsapp.svg",
+        icon_url: "whatsapp-img.png",
         link: "https://wa.me/995591983210",
       },
       {
         id: 4,
         name: "Viber",
-        icon_url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/brands/viber.svg",
+        icon_url: "viber-img.png",
         link: "viber://contact?number=995591983210",
       },
     ],
@@ -115,13 +115,13 @@ export const aboutSections: AboutSectionType[] = [
       {
         id: 1,
         name: "Facebook",
-        icon_url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/brands/facebook.svg",
+        icon_url: "fb-img.png",
         link: "https://facebook.com/archi.ge",
       },
       {
         id: 2,
         name: "Instagram",
-        icon_url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/brands/instagram.svg",
+        icon_url: "insta-img.png",
         link: "https://instagram.com/archi_ge",
       },
     ],
@@ -153,13 +153,13 @@ export const aboutSections: AboutSectionType[] = [
       {
         id: 1,
         name: "Instagram",
-        icon_url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/brands/instagram.svg",
+        icon_url: "insta-img.png",
         link: "https://instagram.com/m2_developers",
       },
       {
         id: 2,
         name: "Facebook",
-        icon_url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/brands/facebook.svg",
+        icon_url: "fb-img.png",
         link: "https://facebook.com/m2.ge",
       },
     ],

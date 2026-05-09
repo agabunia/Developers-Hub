@@ -62,8 +62,7 @@
 /* Since Section */
 .since-section {
   display: flex;
-  justify-content: center;
-  padding: 0 20px;
+  justify-content: space-between;
 }
 
 .since-section_container {
@@ -72,8 +71,12 @@
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  max-width: 300px;
   width: 100%;
+}
+
+.flag-icon {
+  width: 35px;
+  height: 35px;
 }
 
 .since-section_title {
@@ -86,9 +89,10 @@
 .since-section_year {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 15px;
   margin-bottom: 25px;
+  padding: 0 30px;
 }
 
 .since-section_year-value {
@@ -98,10 +102,10 @@
 }
 
 .since-section_bar {
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  border-radius: 2px;
+  width: 100vw;
+  height: 10px;
+  background: #57B5D3;
+  border-radius: 5px;
 }
 
 .since-section_experience {
@@ -346,31 +350,34 @@
 }
 
 .social-media-card_icon {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   background: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
 
 .social-media-card:hover .social-media-card_icon {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: white;
 }
 
 .social-media-card_icon img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  filter: brightness(0.7);
-  transition: filter 0.3s ease;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.social-media-card:hover .social-media-card_icon img {
-  filter: brightness(0) invert(1);
+.social-media-card_icon-fallback {
+  color: #667eea;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
 }
 
 .social-media-card_name {
