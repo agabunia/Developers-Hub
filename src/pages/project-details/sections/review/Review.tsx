@@ -142,8 +142,9 @@ function ReviewCard({ review }: { review: ReviewType }) {
           </div>
         </div>
 
-        <p className="review-card_comment">{review.comment_geo}</p>
+        
       </div>
+      <p className="review-card_comment">{review.comment_geo}</p>
     </article>
   );
 }

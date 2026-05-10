@@ -1,7 +1,7 @@
 .review-section {
-  width: min(100%, 544px);
-  margin: 0 auto;
+  width: 100%;
   color: #151515;
+  /* border-radius: 50px; */
 }
 
 .review-summary {
@@ -9,8 +9,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 0 34px;
-  margin-bottom: -7px;
+  padding: 0 20px 25px 20px;
   position: relative;
   z-index: 1;
 }
@@ -38,7 +37,7 @@
 
 .review-panel {
   border: 1px solid #dddddd;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   padding: 41px 35px 7px;
   background: #ffffff;
@@ -55,9 +54,9 @@
   grid-template-columns: 53px 1fr;
   gap: 9px;
   min-height: 156px;
-  padding: 18px 26px 16px 17px;
+  padding: 18px 26px 0 17px;
   border: 1px solid #dddddd;
-  border-radius: 5px;
+  border-radius: 7px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   background: #ffffff;
 }
@@ -159,11 +158,16 @@
 }
 
 .review-card_comment {
-  margin: 31px 0 0;
-  max-width: 356px;
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
   font-size: 16px;
   line-height: 1.15;
   color: #111111;
+  overflow-wrap: break-word;
 }
 
 .review-empty {
@@ -274,7 +278,7 @@
   }
 
   .review-card_comment {
-    margin-top: 22px;
+    padding-top: 22px;
     max-width: none;
     font-size: 14px;
     line-height: 1.25;
