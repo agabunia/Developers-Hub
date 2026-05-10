@@ -65,7 +65,7 @@ export default function ProjectDetailsPage() {
       <div className="project-details_banner">
         <img
           src={bannerUrl || "https://via.placeholder.com/1200x300"}
-          alt={developer.name_end}
+          alt={developer.name_eng}
           className="project-details_banner-img"
         />
       </div>
@@ -77,19 +77,19 @@ export default function ProjectDetailsPage() {
             {logoUrl ? (
               <img
                 src={logoUrl}
-                alt={developer.name_end}
+                alt={developer.name_eng}
                 className="project-details_logo"
               />
             ) : (
               <span className="project-details_logo-fallback">
-                {developer.name_end}
+                {developer.name_eng}
               </span>
             )}
           </div>
           <div className="project-details_info">
             <div className="project-details_info-top">
               <h1 className="project-details_title">
-                {developer.name_end} | {developer.name_geo}
+                {developer.name_eng} | {developer.name_geo}
               </h1>
               <div className="project-details_likes">
                 <span className="project-details_likes-icon">❤️</span>

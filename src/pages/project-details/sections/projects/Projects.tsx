@@ -2,14 +2,14 @@ import { useState, useMemo } from "react";
 import { getProjectsByStatus, type ProjectType } from "./projects.mock";
 import "./Projects.css";
 
-const projectImages = import.meta.glob("../../../../assets/developers/developers_logos/*", {
+const projectImages = import.meta.glob("../../../../assets/developers/developers_projects/*", {
   eager: true,
   import: "default",
   query: "?url",
 }) as Record<string, string>;
 
 function getProjectImageUrl(imageLocation: string) {
-  return projectImages[`../../../../assets/developers/developers_logos/${imageLocation}`];
+  return projectImages[`../../../../assets/developers/developers_projects/${imageLocation}`];
 }
 
 type FilterType = "all" | "finished" | "on_going";
@@ -114,7 +114,7 @@ function ProjectCard({ project }: { project: ProjectType }) {
       <div className="project-card_image-wrapper">
         <img
           src={imageUrl || "https://via.placeholder.com/300x200"}
-          alt={project.name_end}
+          alt={project.name_eng}
           className="project-card_image"
         />
 
@@ -137,7 +137,7 @@ function ProjectCard({ project }: { project: ProjectType }) {
       <div className="project-card_content">
         <div className="project-card_header">
           <div className="project-card_names">
-            <h4 className="project-card_name">{project.name_end}</h4>
+            <h4 className="project-card_name">{project.name_eng}</h4>
             <p className="project-card_name-geo">{project.name_geo}</p>
           </div>
 

@@ -12,7 +12,7 @@ function getLogoImageUrl(imageLocation: string) {
 }
 
 function getDeveloperLabel(developer: DeveloperLogos) {
-  return [developer.name_end, developer.name_geo].filter(Boolean).join(" | ");
+  return [developer.name_eng, developer.name_geo].filter(Boolean).join(" | ");
 }
 
 function DeveloperCard({ developer }: { developer: DeveloperLogos }) {
@@ -25,7 +25,7 @@ function DeveloperCard({ developer }: { developer: DeveloperLogos }) {
         {logoUrl ? (
           <img className="developers-list_logo" src={logoUrl} alt={label} loading="lazy" />
         ) : (
-          <span className="developers-list_logo-fallback">{developer.name_end}</span>
+          <span className="developers-list_logo-fallback">{developer.name_eng}</span>
         )}
       </span>
       <span className="developers-list_name">{label}</span>

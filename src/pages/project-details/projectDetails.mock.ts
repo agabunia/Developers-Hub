@@ -1,7 +1,7 @@
 export type ProjectDetailsType = {
   id: number;
   name_geo: string;
-  name_end: string;
+  name_eng: string;
   logo_location: string;
   banner_location: string;
   rating: number;
@@ -22,7 +22,7 @@ export const projectDetails: ProjectDetailsType[] = [
   {
     id: 1,
     name_geo: "ბლოქსი",
-    name_end: "BLOX",
+    name_eng: "BLOX",
     logo_location: "blox.jpg",
     banner_location: "background_banner.png",
     rating: 4.0,
@@ -41,7 +41,7 @@ export const projectDetails: ProjectDetailsType[] = [
   {
     id: 2,
     name_geo: "არჩი",
-    name_end: "Archi",
+    name_eng: "Archi",
     logo_location: "archi.jpg",
     banner_location: "background_banner.png",
     rating: 4.5,
@@ -60,7 +60,7 @@ export const projectDetails: ProjectDetailsType[] = [
   {
     id: 3,
     name_geo: "მ2",
-    name_end: "m2",
+    name_eng: "m2",
     logo_location: "m2.jpg",
     banner_location: "background_banner.png",
     rating: 4.2,
@@ -79,7 +79,7 @@ export const projectDetails: ProjectDetailsType[] = [
   {
     id: 4,
     name_geo: "დეკა",
-    name_end: "Deka",
+    name_eng: "Deka",
     logo_location: "deka.jpg",
     banner_location: "background_banner.png",
     rating: 3.9,
@@ -98,7 +98,7 @@ export const projectDetails: ProjectDetailsType[] = [
   {
     id: 5,
     name_geo: "ბიოგრაფი",
-    name_end: "Biograpi",
+    name_eng: "Biograpi",
     logo_location: "biograpi.jpg",
     banner_location: "background_banner.png",
     rating: 4.3,
@@ -117,7 +117,7 @@ export const projectDetails: ProjectDetailsType[] = [
   {
     id: 6,
     name_geo: "აპექსი",
-    name_end: "Apex",
+    name_eng: "Apex",
     logo_location: "apex.jpg",
     banner_location: "background_banner.png",
     rating: 4.1,
@@ -136,7 +136,7 @@ export const projectDetails: ProjectDetailsType[] = [
   {
     id: 7,
     name_geo: "თეთრი კვადრატი",
-    name_end: "White Square",
+    name_eng: "White Square",
     logo_location: "white_square.jpg",
     banner_location: "background_banner.png",
     rating: 4.0,
@@ -155,7 +155,7 @@ export const projectDetails: ProjectDetailsType[] = [
   {
     id: 8,
     name_geo: "ისტორია",
-    name_end: "Istoria",
+    name_eng: "Istoria",
     logo_location: "istoria.jpg",
     banner_location: "background_banner.png",
     rating: 3.8,
