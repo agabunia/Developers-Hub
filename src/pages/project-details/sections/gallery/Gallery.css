@@ -110,13 +110,29 @@
   transform: scale(1.1);
 }
 
+/* Video in card */
+.gallery-card_video {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none;
+  display: block;
+}
+
+/* Transparent layer that captures clicks over the iframe */
+.gallery-card_video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: transparent;
+  cursor: pointer;
+}
+
 /* Overlay */
 .gallery-card_overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
+  z-index: 2;
   background: rgba(0, 0, 0, 0);
   display: flex;
   align-items: center;

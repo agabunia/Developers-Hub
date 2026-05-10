@@ -2,14 +2,14 @@ import { useState, useMemo } from "react";
 import { getGalleryByType, type GalleryItemType } from "./gallery.mock";
 import "./Gallery.css";
 
-const galleryImages = import.meta.glob("../../../../assets/developers/developers_logos/*", {
+const galleryImages = import.meta.glob("../../../../assets/developers/developers_projects/*", {
   eager: true,
   import: "default",
   query: "?url",
 }) as Record<string, string>;
 
 function getGalleryImageUrl(imageLocation: string) {
-  return galleryImages[`../../../../assets/developers/developers_logos/${imageLocation}`];
+  return galleryImages[`../../../../assets/developers/developers_projects/${imageLocation}`];
 }
 
 type FilterType = "all" | "photo" | "video";
@@ -43,9 +43,6 @@ export default function Gallery({ developerId }: GalleryProps) {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-  const photoCount = getGalleryByType(developerId, "photo").length;
-  const videoCount = getGalleryByType(developerId, "video").length;
 
   return (
     <section className="gallery-section">
@@ -130,16 +127,30 @@ function GalleryCard({ item }: { item: GalleryItemType }) {
         onKeyDown={(e) => e.key === "Enter" && setIsModalOpen(true)}
       >
         <div className="gallery-card_image-wrapper">
-          <img
-            src={imageUrl || "https://via.placeholder.com/300x300"}
-            alt={item.title_end || "Gallery item"}
-            className="gallery-card_image"
-          />
+          {item.video_url ? (
+            <>
+              <iframe
+                className="gallery-card_video"
+                src={item.video_url}
+                title={item.title_end}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+              {/* Transparent click-capture layer so card click opens modal */}
+              <div className="gallery-card_video-overlay" />
+            </>
+          ) : (
+            <img
+              src={imageUrl || "https://via.placeholder.com/300x300"}
+              alt={item.title_end || "Gallery item"}
+              className="gallery-card_image"
+            />
+          )}
 
-          {/* Overlay */}
+          {/* Hover Overlay */}
           <div className="gallery-card_overlay">
             <div className="gallery-card_play-icon">
-              {item.type === "video" ? (
+              {item.video_url ? (
                 <>
                   <span className="play-button">▶</span>
                   <span className="gallery-type-badge">Video</span>
@@ -184,19 +195,19 @@ function GalleryModal({
           ✕
         </button>
 
-        {item.type === "photo" ? (
-          <img
-            src={imageUrl || "https://via.placeholder.com/800x600"}
-            alt={item.title_end}
-            className="gallery-modal_image"
-          />
-        ) : (
+        {item.video_url ? (
           <iframe
             className="gallery-modal_video"
             src={item.video_url}
             title={item.title_end}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
+          />
+        ) : (
+          <img
+            src={imageUrl || "https://via.placeholder.com/800x600"}
+            alt={item.title_end}
+            className="gallery-modal_image"
           />
         )}
 
