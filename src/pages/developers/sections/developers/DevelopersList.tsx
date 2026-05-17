@@ -1,4 +1,5 @@
 import "./DevelopersList.css";
+import { Link } from "react-router-dom";
 import { developerLogos, type DeveloperLogos } from "./developers.mock";
 
 const logoImages = import.meta.glob("../../../../assets/developers/developers_logos/*", {
@@ -20,7 +21,7 @@ function DeveloperCard({ developer }: { developer: DeveloperLogos }) {
   const label = getDeveloperLabel(developer);
 
   return (
-    <a className="developers-list_card" href={`/developers/${developer.id}`}>
+    <Link className="developers-list_card" to={`/developers/${developer.id}`}>
       <span className="developers-list_logo-wrap">
         {logoUrl ? (
           <img className="developers-list_logo" src={logoUrl} alt={label} loading="lazy" />
@@ -29,7 +30,7 @@ function DeveloperCard({ developer }: { developer: DeveloperLogos }) {
         )}
       </span>
       <span className="developers-list_name">{label}</span>
-    </a>
+    </Link>
   );
 }
 
@@ -43,18 +44,18 @@ export default function DevelopersList() {
       </div>
 
       <nav className="developers-list_pagination" aria-label="Developers pages">
-        <a className="developers-list_page developers-list_page-active" href="/developers?page=1" aria-current="page">
+        <Link className="developers-list_page developers-list_page-active" to="/developers?page=1" aria-current="page">
           1
-        </a>
-        <a className="developers-list_page" href="/developers?page=2">
+        </Link>
+        <Link className="developers-list_page" to="/developers?page=2">
           2
-        </a>
-        <a className="developers-list_page" href="/developers?page=3">
+        </Link>
+        <Link className="developers-list_page" to="/developers?page=3">
           3
-        </a>
-        <a className="developers-list_page" href="/developers?page=4">
+        </Link>
+        <Link className="developers-list_page" to="/developers?page=4">
           4
-        </a>
+        </Link>
         <span className="developers-list_page">...</span>
       </nav>
     </section>
