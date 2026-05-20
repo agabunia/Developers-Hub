@@ -168,7 +168,7 @@ export default function ProjectsPage() {
   const resultCount = query.trim() ? filteredProjects.length : projectsResultTotal;
 
   return (
-    <main className="projects-page">
+    <div className="projects-page">
       <section className="projects-page_hero" aria-label="Featured project">
         <img src={heroBanner} alt="Featured residential project" className="projects-page_hero-image" />
         <div className="projects-page_hero-dots" aria-hidden="true">
@@ -222,6 +222,6 @@ export default function ProjectsPage() {
       </nav>
 
       <DevelopersSuggestion />
-    </main>
+    </div>
   );
 }

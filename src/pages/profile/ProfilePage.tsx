@@ -13,7 +13,7 @@ function UserIcon() {
 
 export default function ProfilePage() {
   return (
-    <main className="profile-page">
+    <div className="profile-page">
       <section className="profile-page_header" aria-label="Profile information">
         <div className="profile-page_avatar">
           <UserIcon />
@@ -43,6 +43,6 @@ export default function ProfilePage() {
       <section className="profile-page_panel">
         <Outlet />
       </section>
-    </main>
+    </div>
   );
 }

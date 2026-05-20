@@ -197,17 +197,15 @@ function SocialMediaPanel({
       </div>
 
       <div className="contact-social_dots">
-        {Array.from({ length: Math.max(1, socialMedia.length + 1) }).map(
-          (_, idx) => (
-            <button
-              key={idx}
-              className={`contact-social_dot ${idx === currentIndex ? "active" : ""}`}
-              type="button"
-              onClick={() => setCurrentIndex(Math.min(idx, maxIndex))}
-              aria-label={`Go to social media slide ${idx + 1}`}
-            />
-          ),
-        )}
+        {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+          <button
+            key={idx}
+            className={`contact-social_dot ${idx === currentIndex ? "active" : ""}`}
+            type="button"
+            onClick={() => setCurrentIndex(idx)}
+            aria-label={`Go to social media slide ${idx + 1}`}
+          />
+        ))}
       </div>
     </div>
   );

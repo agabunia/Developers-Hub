@@ -52,7 +52,7 @@ function OfferCard({ offer }: { offer: Offers }) {
 
 export default function OffersPage() {
   return (
-    <main className="offers-page">
+    <div className="offers-page">
       <section className="offers-page_inner" aria-labelledby="offers-page-title">
         <h1 id="offers-page-title">Special offers for you</h1>
 
@@ -80,6 +80,6 @@ export default function OffersPage() {
           <span className="offers-page_page">...</span>
         </nav>
       </section>
-    </main>
+    </div>
   );
 }

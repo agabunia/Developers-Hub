@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import Pagination from "../../../../components/ui/pagination";
 import { getGalleryByType, type GalleryItemType } from "./gallery.mock";
 import "./Gallery.css";
 
@@ -94,21 +95,12 @@ export default function Gallery({ developerId }: GalleryProps) {
         </div>
       )}
 
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="gallery-pagination">
-          {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((page) => (
-            <button
-              key={page}
-              className={`gallery-pagination-btn ${currentPage === page ? "active" : ""}`}
-              onClick={() => handlePageChange(page)}
-            >
-              {page}
-            </button>
-          ))}
-          {totalPages > 5 && <span className="gallery-pagination-ellipsis">...</span>}
-        </div>
-      )}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        className="gallery-pagination"
+      />
     </section>
   );
 }
@@ -139,13 +131,13 @@ function GalleryCard({ item }: { item: GalleryItemType }) {
               {/* Transparent click-capture layer so card click opens modal */}
               <div className="gallery-card_video-overlay" />
             </>
-          ) : (
+          ) : imageUrl ? (
             <img
-              src={imageUrl || "https://via.placeholder.com/300x300"}
+              src={imageUrl}
               alt={item.title_eng || "Gallery item"}
               className="gallery-card_image"
             />
-          )}
+          ) : null}
 
           {/* Hover Overlay */}
           <div className="gallery-card_overlay">
@@ -203,13 +195,13 @@ function GalleryModal({
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
-        ) : (
+        ) : imageUrl ? (
           <img
-            src={imageUrl || "https://via.placeholder.com/800x600"}
+            src={imageUrl}
             alt={item.title_eng}
             className="gallery-modal_image"
           />
-        )}
+        ) : null}
 
         {item.title_eng && (
           <div className="gallery-modal_info">

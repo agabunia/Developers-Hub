@@ -70,7 +70,6 @@ function FeedItem({ item }: { item: FeedItemType }) {
           {item.title_geo && (
             <h3 className="feed-item_title-geo">{item.title_geo}</h3>
           )}
-          {/* {item.title_end && <p className="feed-item_title-end">{item.title_end}</p>} */}
         </div>
 
         <div className="feed-item_brand">
@@ -83,7 +82,7 @@ function FeedItem({ item }: { item: FeedItemType }) {
             <img
               src={logoUrl}
               alt={item.name_eng || item.name_geo || "Developer logo"}
-              className="feed-item_logo"
+              className="feed-item_logo__img"
             />
           </div>
         </div>
@@ -91,12 +90,7 @@ function FeedItem({ item }: { item: FeedItemType }) {
 
       <div className="feed-item_divider" />
 
-      <div className="feed-item_content">
-        {/* {item.description_end && (
-          <p className="feed-item_description">{item.description_end}</p>
-        )} */}
-        {item.description_geo}
-      </div>
+      <div className="feed-item_content">{item.description_geo}</div>
 
       {item.type === "image" && imageUrl && (
         <div className="feed-item_media">

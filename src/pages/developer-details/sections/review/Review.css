@@ -178,36 +178,7 @@
 }
 
 .review-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 13px;
-  min-height: 28px;
   margin-top: 6px;
-}
-
-.review-pagination_button {
-  border: 0;
-  background: transparent;
-  padding: 0;
-  color: #a6a6a6;
-  font-size: 15px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.review-pagination_button.active {
-  color: #111111;
-}
-
-.review-pagination_button:hover {
-  color: #4fb7de;
-}
-
-.review-pagination_ellipsis {
-  color: #a6a6a6;
-  font-size: 15px;
-  line-height: 1;
 }
 
 @media (max-width: 640px) {

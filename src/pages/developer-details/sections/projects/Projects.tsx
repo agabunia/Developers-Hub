@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import Pagination from "../../../../components/ui/pagination";
 import { getProjectsByStatus, type ProjectType } from "./projects.mock";
 import "./Projects.css";
 
@@ -88,20 +89,12 @@ export default function Projects({ developerId }: ProjectsProps) {
         </div>
       )}
 
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="projects-pagination">
-          {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((page) => (
-            <button
-              key={page}
-              className={`projects-pagination-btn ${currentPage === page ? "active" : ""}`}
-              onClick={() => handlePageChange(page)}
-            >
-              {page}
-            </button>
-          ))}
-        </div>
-      )}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        className="projects-pagination"
+      />
     </section>
   );
 }
@@ -112,11 +105,13 @@ function ProjectCard({ project }: { project: ProjectType }) {
   return (
     <div className="project-card">
       <div className="project-card_image-wrapper">
-        <img
-          src={imageUrl || "https://via.placeholder.com/300x200"}
-          alt={project.name_eng}
-          className="project-card_image"
-        />
+        {imageUrl && (
+          <img
+            src={imageUrl}
+            alt={project.name_eng}
+            className="project-card_image"
+          />
+        )}
 
         {/* Status Badge */}
         <div className={`project-card_status project-card_status-${project.status}`}>

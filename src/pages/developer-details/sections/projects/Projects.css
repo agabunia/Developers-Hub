@@ -247,39 +247,8 @@
   margin: 0;
 }
 
-/* Pagination */
 .projects-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
   margin-top: 40px;
-  flex-wrap: wrap;
-}
-
-.projects-pagination-btn {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ddd;
-  background: white;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #666;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.projects-pagination-btn:hover:not(.active) {
-  border-color: #667eea;
-  color: #667eea;
-  background: #f8f9ff;
-}
-
-.projects-pagination-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-color: #667eea;
 }
 
 /* Responsive */

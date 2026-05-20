@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import Pagination from "../../../../components/ui/pagination";
 import {
   getReviewStatsByDeveloper,
   getReviewsByDeveloper,
@@ -76,29 +77,12 @@ export default function Review({ developerId }: ReviewProps) {
           </div>
         )}
 
-        {totalPages > 1 && (
-          <div className="review-pagination" aria-label="Review pages">
-            {Array.from({ length: Math.min(totalPages, 4) }, (_, idx) => {
-              const page = idx + 1;
-
-              return (
-                <button
-                  key={page}
-                  className={`review-pagination_button ${
-                    currentPage === page ? "active" : ""
-                  }`}
-                  onClick={() => handlePageChange(page)}
-                  aria-current={currentPage === page ? "page" : undefined}
-                >
-                  {page}
-                </button>
-              );
-            })}
-            {totalPages > 4 && (
-              <span className="review-pagination_ellipsis">...</span>
-            )}
-          </div>
-        )}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          className="review-pagination"
+        />
       </div>
     </section>
   );

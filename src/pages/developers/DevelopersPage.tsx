@@ -4,9 +4,9 @@ import DevelopersFeed from "./sections/feed/DevelopersFeed";
 
 export default function DevelopersPage() {
   return (
-    <main className="developers-page">
+    <div className="developers-page">
       <DevelopersFeed />
       <DevelopersList />
-    </main>
+    </div>
   );
 }

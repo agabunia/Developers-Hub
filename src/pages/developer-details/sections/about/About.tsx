@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { aboutSections, type AboutSectionType } from "./about.mock";
 import "./About.css";
 import FlagIcon from '../../../../assets/icons/Flag.svg';
@@ -90,7 +90,6 @@ function SinceSection({ about }: { about: AboutSectionType }) {
 
 function PartnersCarousel({ about }: { about: AboutSectionType }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
   const itemsPerView = 4;
   const maxIndex = Math.max(0, about.partners.length - itemsPerView);
 
@@ -118,7 +117,6 @@ function PartnersCarousel({ about }: { about: AboutSectionType }) {
         <div className="partners-carousel_viewport">
           <div
             className="partners-carousel_track"
-            ref={containerRef}
             style={{
               transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
             }}
@@ -140,11 +138,12 @@ function PartnersCarousel({ about }: { about: AboutSectionType }) {
       </div>
 
       <div className="partners-carousel_dots">
-        {Array.from({ length: Math.ceil(about.partners.length / itemsPerView) }).map((_, idx) => (
+        {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
           <button
             key={idx}
-            className={`partners-carousel_dot ${idx === Math.floor(currentIndex / 1) ? "active" : ""}`}
-            onClick={() => setCurrentIndex(Math.min(idx, maxIndex))}
+            type="button"
+            className={`partners-carousel_dot ${idx === currentIndex ? "active" : ""}`}
+            onClick={() => setCurrentIndex(idx)}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
@@ -188,7 +187,7 @@ function SocialMediaCarousel({ about }: { about: AboutSectionType }) {
 
   return (
     <div className="social-carousel">
-      <h3 className="social-carousel_title">{about.developer_id === 1 ? "BLOX's" : ""} social media</h3>
+      <h3 className="social-carousel_title">{about.name_eng}'s social media</h3>
       <div className="social-carousel_container">
         <button
           className="social-carousel_arrow social-carousel_arrow-prev"
@@ -223,11 +222,12 @@ function SocialMediaCarousel({ about }: { about: AboutSectionType }) {
       </div>
 
       <div className="social-carousel_dots">
-        {Array.from({ length: Math.max(1, about.social_media.length + 1) }).map((_, idx) => (
+        {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
           <button
             key={idx}
+            type="button"
             className={`social-carousel_dot ${idx === currentIndex ? "active" : ""}`}
-            onClick={() => setCurrentIndex(Math.min(idx, maxIndex))}
+            onClick={() => setCurrentIndex(idx)}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}

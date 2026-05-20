@@ -11,7 +11,16 @@ import { Contact } from "./sections/contact";
 
 type TabType = "feed" | "about" | "projects" | "gallery" | "review" | "contact";
 
-const logoImages = import.meta.glob(
+const TABS: { id: TabType; label: string }[] = [
+  { id: "feed", label: "Feed" },
+  { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+  { id: "gallery", label: "Gallery" },
+  { id: "review", label: "Review" },
+  { id: "contact", label: "Contact" },
+];
+
+const developerImages = import.meta.glob(
   "../../assets/developers/developers_logos/*",
   {
     eager: true,
@@ -20,23 +29,8 @@ const logoImages = import.meta.glob(
   },
 ) as Record<string, string>;
 
-const bannerImages = import.meta.glob(
-  "../../assets/developers/developers_logos/*",
-  {
-    eager: true,
-    import: "default",
-    query: "?url",
-  },
-) as Record<string, string>;
-
-function getLogoImageUrl(imageLocation: string) {
-  return logoImages[
-    `../../assets/developers/developers_logos/${imageLocation}`
-  ];
-}
-
-function getBannerImageUrl(imageLocation: string) {
-  return bannerImages[
+function getDeveloperImageUrl(imageLocation: string) {
+  return developerImages[
     `../../assets/developers/developers_logos/${imageLocation}`
   ];
 }
@@ -56,23 +50,22 @@ export default function ProjectDetailsPage() {
     );
   }
 
-  const logoUrl = getLogoImageUrl(developer.logo_location);
+  const logoUrl = getDeveloperImageUrl(developer.logo_location);
   const bannerUrl =
-    getBannerImageUrl(developer.banner_location) ||
-    getBannerImageUrl(developer.logo_location);
+    getDeveloperImageUrl(developer.banner_location) || logoUrl;
 
   return (
     <div className="project-details">
-      {/* Banner Section */}
       <div className="project-details_banner">
-        <img
-          src={bannerUrl || "https://via.placeholder.com/1200x300"}
-          alt={developer.name_eng}
-          className="project-details_banner-img"
-        />
+        {bannerUrl && (
+          <img
+            src={bannerUrl}
+            alt={developer.name_eng}
+            className="project-details_banner-img"
+          />
+        )}
       </div>
 
-      {/* Developer Card Section */}
       <div className="project-details_header">
         <div className="project-details_card">
           <div className="project-details_logo-wrap">
@@ -119,47 +112,19 @@ export default function ProjectDetailsPage() {
         </div>
       </div>
 
-      {/* Navigation Tabs */}
       <nav className="project-details_tabs">
-        <button
-          className={`project-details_tab ${activeTab === "feed" ? "active" : ""}`}
-          onClick={() => setActiveTab("feed")}
-        >
-          Feed
-        </button>
-        <button
-          className={`project-details_tab ${activeTab === "about" ? "active" : ""}`}
-          onClick={() => setActiveTab("about")}
-        >
-          About
-        </button>
-        <button
-          className={`project-details_tab ${activeTab === "projects" ? "active" : ""}`}
-          onClick={() => setActiveTab("projects")}
-        >
-          Projects
-        </button>
-        <button
-          className={`project-details_tab ${activeTab === "gallery" ? "active" : ""}`}
-          onClick={() => setActiveTab("gallery")}
-        >
-          Gallery
-        </button>
-        <button
-          className={`project-details_tab ${activeTab === "review" ? "active" : ""}`}
-          onClick={() => setActiveTab("review")}
-        >
-          Review
-        </button>
-        <button
-          className={`project-details_tab ${activeTab === "contact" ? "active" : ""}`}
-          onClick={() => setActiveTab("contact")}
-        >
-          Contact
-        </button>
+        {TABS.map((tab) => (
+          <button
+            key={tab.id}
+            type="button"
+            className={`project-details_tab ${activeTab === tab.id ? "active" : ""}`}
+            onClick={() => setActiveTab(tab.id)}
+          >
+            {tab.label}
+          </button>
+        ))}
       </nav>
 
-      {/* Tab Content */}
       <div className="project-details_content">
         {activeTab === "feed" && <Feed developerId={developer.id} />}
         {activeTab === "about" && <About developerId={developer.id} />}
