@@ -8,6 +8,8 @@ import HeaderActions from "./HeaderActions";
 import { mockHeaderUser } from "./header.mock";
 import { navItems, socialLinks } from "./header.config";
 import phoneIcon from "../../../assets/icons/call.svg";
+import logoLong from "../../../assets/habita-branding/logo-long.svg";
+import logoMid from "../../../assets/habita-branding/logo-mid.svg";
 
 export default function Header({
   userName = mockHeaderUser.userName,
@@ -40,8 +42,8 @@ export default function Header({
         <div className={styles.inner}>
           <div className={styles.topRow}>
             <div className={styles.logoGroup}>
-              <div className={styles.logoBox}>LOGO</div>
-              <div className={styles.logoBox}>LOGO</div>
+              <img src={logoMid} alt="Habita" className={styles.logoMobile} />
+              <img src={logoLong} alt="Habita" className={styles.logoDesktop} />
             </div>
 
             <div className={styles.profileDesktop}>
