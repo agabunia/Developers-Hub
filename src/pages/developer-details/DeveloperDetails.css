@@ -25,15 +25,12 @@
 /* Header & Developer Card */
 .project-details_header {
   background-color: white;
-  padding: 0 20px;
   border-bottom: 1px solid #e0e0e0;
-  display: flex;
-  justify-content: center;
 }
 
 .project-details_card {
-  max-width: 1200px;
-  width: 100%;
+  width: min(100% - 32px, 72rem);
+  margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 30px;
@@ -201,10 +198,9 @@
 /* Content Section */
 .project-details_content {
   flex: 1;
-  max-width: 1200px;
-  width: 100%;
+  width: min(100% - 32px, 72rem);
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 0;
 }
 
 .project-details_section {
@@ -335,7 +331,7 @@
   }
 
   .project-details_content {
-    padding: 20px 10px;
+    padding: 20px 0;
   }
 
   .project-details_section {

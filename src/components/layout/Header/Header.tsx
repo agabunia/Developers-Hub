@@ -37,33 +37,35 @@ export default function Header({
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.topRow}>
-          <div className={styles.logoGroup}>
-            <div className={styles.logoBox}>LOGO</div>
-            <div className={styles.logoBox}>LOGO</div>
+        <div className={styles.inner}>
+          <div className={styles.topRow}>
+            <div className={styles.logoGroup}>
+              <div className={styles.logoBox}>LOGO</div>
+              <div className={styles.logoBox}>LOGO</div>
+            </div>
+
+            <div className={styles.profileDesktop}>
+              <ProfileCard userName={userName} userId={userId} />
+            </div>
+
+            <button
+              className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerOpen : ""}`}
+              type="button"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+            >
+              <span className={styles.hamburgerBar} />
+              <span className={styles.hamburgerBar} />
+              <span className={styles.hamburgerBar} />
+            </button>
           </div>
 
-          <div className={styles.profileDesktop}>
-            <ProfileCard userName={userName} userId={userId} />
+          <div className={styles.bottomRow}>
+            <HeaderNav />
+            <HeaderActions phone={phone} />
           </div>
-
-          <button
-            className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerOpen : ""}`}
-            type="button"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-          >
-            <span className={styles.hamburgerBar} />
-            <span className={styles.hamburgerBar} />
-            <span className={styles.hamburgerBar} />
-          </button>
-        </div>
-
-        <div className={styles.bottomRow}>
-          <HeaderNav />
-          <HeaderActions phone={phone} />
         </div>
       </header>
 
