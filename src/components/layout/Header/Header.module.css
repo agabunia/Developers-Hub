@@ -66,52 +66,6 @@
 }
 
 /* ============================================================
-   HAMBURGER BUTTON — visible on mobile only
-   ============================================================ */
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 6px;
-  transition: background 0.2s ease;
-  /* Ensures the button sits on top of the mobile menu */
-  position: relative;
-  z-index: 101;
-}
-
-.hamburger:hover {
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.hamburgerBar {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: #1f1f1f;
-  border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.2s ease;
-}
-
-/* Animate three bars into an ✕ when the menu is open */
-.hamburgerOpen .hamburgerBar:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.hamburgerOpen .hamburgerBar:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-
-.hamburgerOpen .hamburgerBar:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* ============================================================
    BOTTOM ROW (desktop nav + actions) — hidden on mobile
    ============================================================ */
 .bottomRow {
@@ -241,157 +195,6 @@
 }
 
 /* ============================================================
-   MOBILE MENU PANEL
-   Fixed full-screen, slides in from the right.
-   Sits behind the header (z-index 99 < header 100).
-   padding-top clears the header height on mobile (~84 px).
-   ============================================================ */
-.mobileMenu {
-  position: fixed;
-  inset: 0;
-  z-index: 99;
-  background: #f5f5f5;
-  padding: 88px 24px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
-  overflow-y: auto;
-  /* Closed state */
-  transform: translateX(100%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-}
-
-.mobileMenuOpen {
-  transform: translateX(0);
-  pointer-events: auto;
-}
-
-/* ============================================================
-   MOBILE PROFILE — user card at the top of the mobile menu
-   ============================================================ */
-.mobileProfile {
-  padding-bottom: 24px;
-  border-bottom: 1px solid #e4e4e4;
-}
-
-/* Make the profile card stretch full width in the mobile menu */
-.mobileProfile .profileCard {
-  width: 100%;
-  border-radius: 12px;
-  justify-content: flex-start;
-}
-
-.mobileProfile .profileText {
-  align-items: flex-start;
-}
-
-/* ============================================================
-   MOBILE NAV — vertical list of nav links
-   ============================================================ */
-.mobileNav {
-  display: flex;
-  flex-direction: column;
-}
-
-.mobileNavLink {
-  font-size: 18px;
-  font-weight: 500;
-  color: #1f1f1f;
-  text-decoration: none;
-  padding: 16px 0;
-  border-bottom: 1px solid #e4e4e4;
-  transition: color 0.2s ease;
-}
-
-.mobileNavLink:first-child {
-  border-top: 1px solid #e4e4e4;
-}
-
-.mobileNavLink:hover,
-.mobileNavLinkActive {
-  color: #4d9fd1;
-}
-
-/* ============================================================
-   MOBILE SOCIAL — vertical list of social media links
-   ============================================================ */
-.mobileSocial {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.mobileSocialTitle {
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #8a8a8a;
-  margin: 0 0 12px;
-}
-
-.mobileSocialItem {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-size: 16px;
-  color: #1f1f1f;
-  text-decoration: none;
-  padding: 10px 0;
-  border-bottom: 1px solid #e4e4e4;
-  transition: color 0.2s ease;
-}
-
-.mobileSocialItem:first-of-type {
-  border-top: 1px solid #e4e4e4;
-}
-
-.mobileSocialItem:hover {
-  color: #4d9fd1;
-}
-
-.mobileSocialIcon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-}
-
-/* ============================================================
-   MOBILE PHONE LINK
-   ============================================================ */
-.mobilePhone {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 16px;
-  color: #1f1f1f;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.mobilePhone:hover {
-  color: #4d9fd1;
-}
-
-.mobilePhoneIcon {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-}
-
-/* ============================================================
-   BACKDROP — behind the mobile panel, above page content
-   ============================================================ */
-.backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 98;
-  background: rgba(0, 0, 0, 0.35);
-  cursor: pointer;
-}
-
-/* ============================================================
    TABLET / DESKTOP — min-width: 768px
    Restore full two-row header, hide mobile-only elements.
    ============================================================ */
@@ -400,13 +203,9 @@
     padding: 18px 0 10px;
   }
 
-  /* Show profile card, hide hamburger */
+  /* Show profile card on desktop */
   .profileDesktop {
     display: flex;
-  }
-
-  .hamburger {
-    display: none;
   }
 
   /* Restore the nav + actions row */
@@ -419,12 +218,4 @@
     border-top: 1px solid #d9d9d9;
   }
 
-  /* Remove mobile-only elements from the layout entirely */
-  .mobileMenu {
-    display: none;
-  }
-
-  .backdrop {
-    display: none;
-  }
 }
