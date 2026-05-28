@@ -146,10 +146,6 @@ export default function ProjectsShowcase() {
             <SectionIcon />
             <h2>Newest Projects</h2>
           </div>
-
-          <a href="/projects" className="projects-showcase_view-link">
-            ყველას ნახვა
-          </a>
         </div>
 
         <div className="projects-showcase_new-grid">
