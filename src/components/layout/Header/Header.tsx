@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import type { HeaderProps } from "./header.types";
 import ProfileCard from "./ProfileCard";
@@ -41,10 +41,10 @@ export default function Header({
       <header className={styles.header}>
         <div className={styles.inner}>
           <div className={styles.topRow}>
-            <div className={styles.logoGroup}>
+            <Link to="/" className={styles.logoGroup}>
               <img src={logoMid} alt="Habita" className={styles.logoMobile} />
               <img src={logoLong} alt="Habita" className={styles.logoDesktop} />
-            </div>
+            </Link>
 
             <div className={styles.profileDesktop}>
               <ProfileCard userName={userName} userId={userId} />
