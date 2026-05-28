@@ -4,7 +4,7 @@ import instagramIcon from "../../../assets/icons/insta.svg";
 import linkedinIcon from "../../../assets/icons/linkedin.svg";
 
 export const navItems: NavItem[] = [
-  { label: "მთავარი გვერდი", to: "/" },
+  { label: "მთავარი", to: "/" },
   { label: "დეველოპერები", to: "/developers" },
   { label: "პროექტები", to: "/projects" },
   { label: "შეთავაზებები", to: "/offers" },
