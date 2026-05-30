@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./ProjectCard.css";
 
 const projectImages = import.meta.glob("../../assets/developers/developers_projects/*", {
@@ -10,11 +11,17 @@ function getImageUrl(imageLocation: string): string | undefined {
   return projectImages[`../../assets/developers/developers_projects/${imageLocation}`];
 }
 
-function BookmarkIcon({ filled = false }: { filled?: boolean }) {
+function SaveIcon({ filled = false }: { filled?: boolean }) {
   return (
-    <svg className="project-card__bookmark-icon" viewBox="0 0 18 22" aria-hidden="true">
-      <path d="M3 2.5h12v16.2L9 15.4l-6 3.3V2.5Z" fill={filled ? "currentColor" : "none"} />
-      <path d="M3 2.5h12v16.2L9 15.4l-6 3.3V2.5Z" />
+    <svg className="project-card__bookmark-icon" viewBox="0 0 109 109" aria-hidden="true">
+      <path
+        d="M86.2918 95.375L54.5002 72.6667L22.7085 95.375V22.7083C22.7085 20.2993 23.6655 17.9889 25.3689 16.2854C27.0724 14.582 29.3828 13.625 31.7918 13.625H77.2085C79.6175 13.625 81.9279 14.582 83.6314 16.2854C85.3348 17.9889 86.2918 20.2993 86.2918 22.7083V95.375Z"
+        fill={filled ? "#f5d142" : "none"}
+        stroke="#1E1E1E"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -53,6 +60,7 @@ export default function ProjectCard({
   isSaved = false,
   href,
 }: ProjectCardProps) {
+  const [saved, setSaved] = useState(isSaved);
   const imageUrl = getImageUrl(imageLocation);
   const statusLabel = status === "finished" ? "✓ Finished" : "⟳ On going";
 
@@ -106,8 +114,9 @@ export default function ProjectCard({
             className="project-card__bookmark-btn"
             type="button"
             aria-label={`Save ${name}`}
+            onClick={() => setSaved((s) => !s)}
           >
-            <BookmarkIcon filled={isSaved} />
+            <SaveIcon filled={saved} />
           </button>
         </div>
 

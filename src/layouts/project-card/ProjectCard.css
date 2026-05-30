@@ -147,12 +147,8 @@ a.project-card__name:hover {
 }
 
 .project-card__bookmark-icon {
-  width: 14px;
-  height: 17px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linejoin: round;
-  stroke-width: 1.7;
+  width: 18px;
+  height: 18px;
 }
 
 /* ── Location ── */
