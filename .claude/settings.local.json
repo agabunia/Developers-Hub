@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(Remove-Item \"d:\\\\Projects\\\\Developers Hub\\\\src\\\\App.tsx\", \"d:\\\\Projects\\\\Developers Hub\\\\src\\\\App.css\")",
-      "Bash(xargs grep -l \"bottom\\\\|mobile\\\\|footer\")"
+      "Bash(xargs grep -l \"bottom\\\\|mobile\\\\|footer\")",
+      "Bash(grep -E \"\\\\.\\(jsx|tsx\\)$\")"
     ]
   }
 }

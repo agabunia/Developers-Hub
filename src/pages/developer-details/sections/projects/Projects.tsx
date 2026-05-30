@@ -1,17 +1,8 @@
 import { useState, useMemo } from "react";
 import Pagination from "../../../../components/ui/pagination";
-import { getProjectsByStatus, type ProjectType } from "./projects.mock";
+import ProjectCard from "../../../../layouts/project-card";
+import { getProjectsByStatus } from "./projects.mock";
 import "./Projects.css";
-
-const projectImages = import.meta.glob("../../../../assets/developers/developers_projects/*", {
-  eager: true,
-  import: "default",
-  query: "?url",
-}) as Record<string, string>;
-
-function getProjectImageUrl(imageLocation: string) {
-  return projectImages[`../../../../assets/developers/developers_projects/${imageLocation}`];
-}
 
 type FilterType = "all" | "finished" | "on_going";
 type ProjectsProps = {
@@ -84,7 +75,17 @@ export default function Projects({ developerId }: ProjectsProps) {
       ) : (
         <div className="projects-grid">
           {paginatedProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard
+              key={project.id}
+              name={project.name_eng}
+              nameSecondary={project.name_geo}
+              address={project.location_eng}
+              imageLocation={project.image_location}
+              status={project.status}
+              completionPercentage={project.completion_percentage}
+              areaSqm={project.area_sqm}
+              unitsCount={project.units_count}
+            />
           ))}
         </div>
       )}
@@ -96,68 +97,5 @@ export default function Projects({ developerId }: ProjectsProps) {
         className="projects-pagination"
       />
     </section>
-  );
-}
-
-function ProjectCard({ project }: { project: ProjectType }) {
-  const imageUrl = getProjectImageUrl(project.image_location);
-
-  return (
-    <div className="project-card">
-      <div className="project-card_image-wrapper">
-        {imageUrl && (
-          <img
-            src={imageUrl}
-            alt={project.name_eng}
-            className="project-card_image"
-          />
-        )}
-
-        {/* Status Badge */}
-        <div className={`project-card_status project-card_status-${project.status}`}>
-          {project.status === "finished" ? "✓ Finished" : "⟳ On going"}
-        </div>
-
-        {/* Completion Bar */}
-        {project.completion_percentage && (
-          <div className="project-card_progress">
-            <div
-              className="project-card_progress-fill"
-              style={{ width: `${project.completion_percentage}%` }}
-            />
-          </div>
-        )}
-      </div>
-
-      <div className="project-card_content">
-        <div className="project-card_header">
-          <div className="project-card_names">
-            <h4 className="project-card_name">{project.name_eng}</h4>
-            <p className="project-card_name-geo">{project.name_geo}</p>
-          </div>
-
-          <div className="project-card_actions">
-            <button className="project-card_action-btn" aria-label="Bookmark" title="Bookmark">
-              🏷️
-            </button>
-          </div>
-        </div>
-
-        <p className="project-card_location">{project.location_eng}</p>
-
-        {project.area_sqm && project.units_count && (
-          <div className="project-card_details">
-            <span className="project-card_detail">
-              <span className="project-card_detail-label">📍</span>
-              {project.area_sqm.toLocaleString()} sqm
-            </span>
-            <span className="project-card_detail">
-              <span className="project-card_detail-label">🏠</span>
-              {project.units_count} units
-            </span>
-          </div>
-        )}
-      </div>
-    </div>
   );
 }

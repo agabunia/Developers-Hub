@@ -1,11 +1,14 @@
 export type ProfileProject = {
   id: number;
   developer: string;
-  name: string;
-  address: string;
-  imageLocation: string;
-  status?: string;
-  badge?: string;
+  name_eng: string;
+  name_geo: string;
+  location_eng: string;
+  image_location: string;
+  status: "finished" | "on_going";
+  completion_percentage?: number;
+  area_sqm?: number;
+  units_count?: number;
   saved?: boolean;
 };
 
@@ -13,35 +16,53 @@ export const profileProjects: ProfileProject[] = [
   {
     id: 1,
     developer: "BLOX",
-    name: "BLOX | Lisi",
-    address: "Tbilisi, Lisi Lake District N64",
-    imageLocation: "img_1.jpg",
-    status: "Available",
+    name_eng: "BLOX | Lisi",
+    name_geo: "ბლოქსი | ლისი",
+    location_eng: "Tbilisi, Lisi Lake District",
+    image_location: "img_1.jpg",
+    status: "finished",
+    completion_percentage: 100,
+    area_sqm: 142000,
+    units_count: 195,
     saved: true,
   },
   {
     id: 2,
     developer: "BLOX",
-    name: "BLOX | Saburtalo",
-    address: "Tbilisi, Kazbegi Avenue N64",
-    imageLocation: "img_2.jpg",
-    badge: "10 000$ - 12 033$",
+    name_eng: "BLOX | Saburtalo",
+    name_geo: "ბლოქსი | საბურთალო",
+    location_eng: "Tbilisi, Kazbegi Avenue",
+    image_location: "img_2.jpg",
+    status: "on_going",
+    completion_percentage: 68,
+    area_sqm: 118000,
+    units_count: 160,
     saved: true,
   },
   {
     id: 3,
     developer: "Deka",
-    name: "BLOX | Dighomi",
-    address: "Tbilisi, King Mirian Street N64",
-    imageLocation: "img_3.jpg",
+    name_eng: "Deka | Dighomi",
+    name_geo: "დეკა | დიღომი",
+    location_eng: "Tbilisi, King Mirian Street",
+    image_location: "img_3.jpg",
+    status: "finished",
+    completion_percentage: 100,
+    area_sqm: 95000,
+    units_count: 130,
     saved: true,
   },
   {
     id: 4,
     developer: "BLOX",
-    name: "BLOX | Vake",
-    address: "Tbilisi, Abashidze Street N44",
-    imageLocation: "img_4.jpg",
+    name_eng: "BLOX | Vake",
+    name_geo: "ბლოქსი | ვაკე",
+    location_eng: "Tbilisi, Abashidze Street",
+    image_location: "img_4.jpg",
+    status: "on_going",
+    completion_percentage: 45,
+    area_sqm: 108000,
+    units_count: 148,
     saved: true,
   },
 ];

@@ -1,15 +1,10 @@
 import { useMemo, useState } from "react";
 import SearchBar from "../../components/ui/search-bar";
 import heroBanner from "../../assets/home/ezo-banner.png";
+import ProjectCard from "../../layouts/project-card";
 import { aboutSections, type PartnersType } from "../developer-details/sections/about/about.mock";
-import { projectListings, projectsResultTotal, type ProjectListing } from "./projects.mock";
+import { projectListings, projectsResultTotal } from "./projects.mock";
 import "./ProjectsPage.css";
-
-const projectImages = import.meta.glob("../../assets/developers/developers_projects/*", {
-  eager: true,
-  import: "default",
-  query: "?url",
-}) as Record<string, string>;
 
 const logoImages = import.meta.glob("../../assets/developers/developers_logos/*", {
   eager: true,
@@ -17,33 +12,8 @@ const logoImages = import.meta.glob("../../assets/developers/developers_logos/*"
   query: "?url",
 }) as Record<string, string>;
 
-function getProjectImageUrl(imageLocation: string) {
-  return projectImages[`../../assets/developers/developers_projects/${imageLocation}`];
-}
-
 function getLogoImageUrl(imageLocation: string) {
   return logoImages[`../../assets/developers/developers_logos/${imageLocation}`];
-}
-
-function BookmarkIcon({ filled = false }: { filled?: boolean }) {
-  return (
-    <svg className="projects-page_bookmark-icon" viewBox="0 0 18 22" aria-hidden="true">
-      <path
-        d="M3 2.5h12v16.2L9 15.4l-6 3.3V2.5Z"
-        fill={filled ? "currentColor" : "none"}
-      />
-      <path d="M3 2.5h12v16.2L9 15.4l-6 3.3V2.5Z" />
-    </svg>
-  );
-}
-
-function LocationIcon() {
-  return (
-    <svg className="projects-page_location-icon" viewBox="0 0 20 20" aria-hidden="true">
-      <path d="M10 18s5.4-5.1 5.4-10a5.4 5.4 0 1 0-10.8 0C4.6 12.9 10 18 10 18Z" />
-      <circle cx="10" cy="8" r="1.8" />
-    </svg>
-  );
 }
 
 function FilterChevron() {
@@ -62,45 +32,6 @@ function ArrowIcon({ direction }: { direction: "prev" | "next" }) {
   );
 }
 
-function ProjectCard({ project }: { project: ProjectListing }) {
-  const imageUrl = getProjectImageUrl(project.imageLocation);
-
-  return (
-    <article className="projects-page_card">
-      <a className="projects-page_card-media" href={`/projects/${project.id}`} aria-label={project.name}>
-        {imageUrl ? (
-          <img className="projects-page_card-image" src={imageUrl} alt={project.name} loading="lazy" />
-        ) : (
-          <span className="projects-page_card-placeholder" aria-hidden="true" />
-        )}
-        {project.badge ? <span className="projects-page_card-badge">{project.badge}</span> : null}
-      </a>
-
-      <div className="projects-page_card-body">
-        <div className="projects-page_card-heading">
-          <a className="projects-page_card-title" href={`/projects/${project.id}`}>
-            {project.name}
-          </a>
-          <button className="projects-page_bookmark" type="button" aria-label={`Save ${project.name}`}>
-            <BookmarkIcon filled={project.isSaved} />
-          </button>
-        </div>
-
-        {project.status ? (
-          <p className="projects-page_status">
-            <span aria-hidden="true" />
-            {project.status}
-          </p>
-        ) : null}
-
-        <p className="projects-page_location">
-          <LocationIcon />
-          {project.address}
-        </p>
-      </div>
-    </article>
-  );
-}
 
 function PartnerLogo({ partner }: { partner: PartnersType }) {
   const logoUrl = getLogoImageUrl(partner.logo_location);
@@ -159,7 +90,7 @@ export default function ProjectsPage() {
     if (!normalizedQuery) return projectListings;
 
     return projectListings.filter((project) =>
-      [project.name, project.developer, project.address, project.status]
+      [project.name_eng, project.name_geo, project.developer, project.location_eng, project.status]
         .filter(Boolean)
         .some((value) => (value ?? "").toLowerCase().includes(normalizedQuery)),
     );
@@ -200,7 +131,19 @@ export default function ProjectsPage() {
 
         <div className="projects-page_grid">
           {visibleProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard
+              key={project.id}
+              name={project.name_eng}
+              nameSecondary={project.name_geo}
+              address={project.location_eng}
+              imageLocation={project.image_location}
+              status={project.status}
+              completionPercentage={project.completion_percentage}
+              areaSqm={project.area_sqm}
+              unitsCount={project.units_count}
+              isSaved={project.isSaved}
+              href={`/projects/${project.id}`}
+            />
           ))}
         </div>
       </section>

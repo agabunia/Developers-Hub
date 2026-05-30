@@ -1,0 +1,219 @@
+.project-card {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+}
+
+.project-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+/* ── Media (image wrapper) ── */
+
+.project-card__media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 200px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  text-decoration: none;
+}
+
+.project-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-card__image {
+  transform: scale(1.08);
+}
+
+.project-card__placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #dce8ee, #8aa2ae);
+}
+
+/* ── Status badge (top-right) ── */
+
+.project-card__status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-card__status--finished {
+  background: #34a853;
+}
+
+.project-card__status--on_going {
+  background: #4285f4;
+}
+
+/* ── Progress bar (bottom of image) ── */
+
+.project-card__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.project-card__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+/* ── Card body ── */
+
+.project-card__body {
+  display: grid;
+  padding: 16px 16px 14px;
+}
+
+.project-card__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.project-card__names {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-card__name {
+  display: block;
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c3e50;
+  line-height: 1.25;
+  word-break: break-word;
+  text-decoration: none;
+}
+
+a.project-card__name:hover {
+  color: #2a7f92;
+}
+
+.project-card__name-secondary {
+  margin: 0;
+  font-size: 12px;
+  color: #999999;
+}
+
+/* ── Bookmark button ── */
+
+.project-card__bookmark-btn {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #343434;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.project-card__bookmark-btn:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.project-card__bookmark-icon {
+  width: 14px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+/* ── Location ── */
+
+.project-card__location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: #666666;
+  line-height: 1.25;
+}
+
+.project-card__location-icon {
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+/* ── Meta (area / units) ── */
+
+.project-card__meta {
+  display: flex;
+  gap: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.project-card__meta-item {
+  font-size: 12px;
+  color: #999999;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .project-card__media {
+    height: 180px;
+  }
+
+  .project-card__body {
+    padding: 14px 14px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card__media {
+    height: 160px;
+  }
+
+  .project-card__body {
+    padding: 12px;
+  }
+
+  .project-card__name {
+    font-size: 13px;
+  }
+}
