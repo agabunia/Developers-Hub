@@ -38,6 +38,7 @@ function getDeveloperImageUrl(imageLocation: string) {
 export default function ProjectDetailsPage() {
   const { id } = useParams<{ id: string }>();
   const [activeTab, setActiveTab] = useState<TabType>("feed");
+  const [isSaved, setIsSaved] = useState(false);
 
   const developer = projectDetails.find((item) => item.id === Number(id));
 
@@ -87,10 +88,26 @@ export default function ProjectDetailsPage() {
                 {developer.name_eng} | {developer.name_geo}
               </h1>
               <div className="project-details_likes">
-                <span className="project-details_likes-icon">❤️</span>
-                <span className="project-details_likes-value">
+                <svg
+                  className="project-details_likes-save"
+                  viewBox="0 0 109 109"
+                  fill={isSaved ? "#f5d142" : "none"}
+                  xmlns="http://www.w3.org/2000/svg"
+                  onClick={() => setIsSaved(!isSaved)}
+                  aria-label="Save"
+                >
+                  <path
+                    d="M86.2918 95.375L54.5002 72.6667L22.7085 95.375V22.7083C22.7085 20.2993 23.6655 17.9889 25.3689 16.2854C27.0724 14.582 29.3828 13.625 31.7918 13.625H77.2085C79.6175 13.625 81.9279 14.582 83.6314 16.2854C85.3348 17.9889 86.2918 20.2993 86.2918 22.7083V95.375Z"
+                    stroke="#1E1E1E"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                {/* <span className="project-details_likes-icon">❤️</span> */}
+                {/* <span className="project-details_likes-value">
                   Likes {(developer.likes / 1000).toFixed(0)}k
-                </span>
+                </span> */}
               </div>
             </div>
             <div className="project-details_rating">

@@ -1,7 +1,7 @@
 import styles from "./Header.module.css";
 import type { HeaderActionsProps } from "./header.types";
 import { socialLinks } from "./header.config";
-import phoneIcon from "../../../assets/icons/call.svg";
+import phoneIcon from "../../../assets/icons/social-media/call.svg";
 
 export default function HeaderActions({ phone }: HeaderActionsProps) {
   const normalizedPhone = phone.replace(/\s+/g, "");

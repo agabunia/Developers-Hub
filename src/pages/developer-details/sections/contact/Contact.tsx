@@ -8,7 +8,7 @@ import {
 } from "./contact.mock";
 import "./Contact.css";
 
-const socialMediaImages = import.meta.glob("../../../../assets/icons/*", {
+const socialMediaImages = import.meta.glob("../../../../assets/icons/**/*", {
   eager: true,
   import: "default",
   query: "?url",
@@ -19,7 +19,7 @@ type ContactProps = {
 };
 
 function getSocialMediaImageUrl(imageLocation: string) {
-  return socialMediaImages[`../../../../assets/icons/${imageLocation}`];
+  return socialMediaImages[`../../../../assets/icons/social-media/${imageLocation}`];
 }
 
 export default function Contact({ developerId }: ContactProps) {

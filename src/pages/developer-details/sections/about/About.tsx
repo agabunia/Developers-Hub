@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { aboutSections, type AboutSectionType } from "./about.mock";
 import "./About.css";
-import FlagIcon from '../../../../assets/icons/Flag.svg';
+import FlagIcon from '../../../../assets/icons/user-related/Flag.svg';
 
 const logoImages = import.meta.glob("../../../../assets/developers/developers_logos/*", {
   eager: true,
@@ -9,7 +9,7 @@ const logoImages = import.meta.glob("../../../../assets/developers/developers_lo
   query: "?url",
 }) as Record<string, string>;
 
-const socialMediaImages = import.meta.glob("../../../../assets/icons/*", {
+const socialMediaImages = import.meta.glob("../../../../assets/icons/**/*", {
   eager: true,
   import: "default",
   query: "?url",
@@ -20,7 +20,7 @@ function getLogoImageUrl(imageLocation: string) {
 }
 
 function getSocialMediaImageUrl(imageLocation: string) {
-  return socialMediaImages[`../../../../assets/icons/${imageLocation}`];
+  return socialMediaImages[`../../../../assets/icons/social-media/${imageLocation}`];
 }
 
 type AboutProps = {

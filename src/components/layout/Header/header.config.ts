@@ -1,7 +1,7 @@
 import type { NavItem, SocialLink } from "./header.types";
-import facebookIcon from "../../../assets/icons/fb.svg";
-import instagramIcon from "../../../assets/icons/insta.svg";
-import linkedinIcon from "../../../assets/icons/linkedin.svg";
+import facebookIcon from "../../../assets/icons/social-media/fb.svg";
+import instagramIcon from "../../../assets/icons/social-media/insta.svg";
+import linkedinIcon from "../../../assets/icons/social-media/linkedin.svg";
 
 export const navItems: NavItem[] = [
   { label: "მთავარი", to: "/" },

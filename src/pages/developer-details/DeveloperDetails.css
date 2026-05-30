@@ -153,6 +153,13 @@
   line-height: 1;
 }
 
+.project-details_likes-save {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+
+
 .project-details_likes-value {
   font-size: 13px;
   font-weight: 500;
@@ -324,6 +331,11 @@
 
   .project-details_likes {
     margin-left: auto;
+  }
+
+  .project-details_likes-save {
+    width: 30px;
+    height: 30px;
   }
 
   .project-details_tabs {
